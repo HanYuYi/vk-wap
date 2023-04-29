@@ -97,17 +97,3 @@
 .fade_up_classic {
   animation: fade_up 1s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
-
-@keyframes fade_down {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, -50px ,0);
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0,0,0);
-  }
-}
-.fade_down_classic {
-  animation: fade_down 1s cubic-bezier(0.25, 0.1, 0.25, 1);
-}

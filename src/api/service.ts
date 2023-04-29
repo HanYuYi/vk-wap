@@ -536,25 +536,7 @@ const ApiSetting = {
         },
         initBackwaterForever: {
             url: "/active/getRealPersonDailyReturnInit"
-        },
-        // msi2023 活动
-        msi2023: {
-            activeMsi2022Init: {
-                url: '/active/getActiveMsi2022Init'
-            },
-            extraTicket: {
-                url: '/active/joinExtraTicket'
-            },
-            draw: {
-                url: '/active/joinActiveMsi2022Draw'
-            },
-            getGame:{
-                url: '/active/getMsi2023Game'
-            },
-            drawRecords:{
-                url: '/active/getActiveMsi2022DrawRecords'
-            }
-        },
+        }
     },
     // 威客历程
     getVkStyleList: {

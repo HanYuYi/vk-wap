@@ -180,12 +180,7 @@ const activeRoutes: Array<RouteRecordRaw> = [
         path: "/playground",
         name: "playground",
         component: () => import("@/views/Active/Special/PlayGround/PlayGround.vue")
-    }, // 娱乐专场
-    {
-        path: "/msi2023",
-        name: "msi2023",
-        component: () => import("@/views/Active/Special/msi2023/index.vue")
-    }
+    } // 娱乐专场
 ]
 
 export default activeRoutes

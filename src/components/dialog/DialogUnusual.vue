@@ -16,6 +16,7 @@ const {
     isShowPassIcon,
     isShowRePassIcon,
     codeloading,
+    countDown,
     isCountDown,
     countdownTime,
     switchPassIcon,
@@ -62,6 +63,7 @@ const notice = computed(() => {
 watch(
     () => systemParams.unusualLogin,
     (val: number) => {
+        if (val) handleCountDown()
         show.value = !!val
     }
 )
@@ -69,6 +71,7 @@ watch(
 watch(
     () => systemParams.unusualWeakpass,
     (val: number) => {
+        if (val) handleCountDown()
         show.value = !!val
     }
 )
@@ -149,9 +152,16 @@ const onSubmit = async (values: ValidateField): Promise<void> => {
     }
 }
 
+const handleCountDown = (): void => {
+    countDown.reset(60 * 1000)
+    countDown.start()
+    isCountDown.value = true
+}
+
 const close = (): void => {
     systemParams.unusualWeakpass = 0
     systemParams.unusualLogin = 0
+    resetForm()
 }
 </script>
 

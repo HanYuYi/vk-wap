@@ -125,6 +125,7 @@ export function useForm() {
         isShowRePassIcon,
         showVerifyCode,
         codeloading,
+        countDown,
         isCountDown,
         countdownTime,
         switchPassIcon,
