@@ -1,0 +1,24 @@
+stages:
+  - build
+
+build-test-job:
+  stage: build
+  tags:
+    - vk-view-wap2-ci
+  only:
+    - test
+  script:
+    - npm install
+    - npm run build
+    - /bin/cp -rf dist/* /data/app/vkgame/public/
+
+build-develop-job:
+  stage: build
+  tags:
+    - vk-view-wap2-ci
+  only:
+    - develop
+  script:
+    - npm install
+    - npm run build
+    - /bin/cp -rf dist/* /data/app/cn_vkgame_for_master/public/

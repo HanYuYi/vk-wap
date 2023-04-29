@@ -1,0 +1,81 @@
+.deposit-bank-overpop {
+  .add_bank {
+    margin: 0.15rem;
+    font-size: 0.17rem;
+    color: #7c839f;
+    border-radius: 0.06rem;
+    border: 1px dashed #7c839f;
+    text-align: center;
+    height: 0.44rem;
+    line-height: 0.44rem;
+
+    span {
+      display: inline-block;
+      width: 0.36rem;
+      text-align: center;
+      color: #27bc74;
+      font-size: 0.36rem;
+      vertical-align: middle;
+      margin-top: -0.04rem;
+    }
+
+    i {
+      vertical-align: middle;
+    }
+  }
+
+  .popup_title {
+    background-color: #e8f1ef;
+    padding: 0 0.15rem;
+    height: 0.32rem;
+    line-height: 0.32rem;
+    font-size: 0.14rem;
+  }
+
+  .deposit_bank_list {
+    max-height: 3rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+.bindbank-overpop {
+  line-height: 1.6;
+  font-size: 12px;
+  .conline {
+      min-height: 0.44rem;
+      font-size: 0.15rem;
+      margin: 0.2rem 0 0 0.15rem;
+  
+      &:first-child {
+        margin-top: 0.3rem;
+      }
+  
+      .fs {
+        margin-right: 0.25rem;
+        vertical-align: top;
+      }
+  
+      .fcon {
+        display: inline-block;
+        max-width: 2.4rem;
+        word-break: break-word;
+        line-height: normal;
+      }
+    }
+  
+    .detailtip {
+      font-size: 0.12rem;
+      color: #c6d0db;
+  
+      &.outtip {
+        margin-left: 0.15rem;
+      }
+    }
+  
+    .comfirmtip {
+      margin: 0.2rem auto 0;
+      width: 3.4rem;
+      color: #7c839f;
+    }
+}

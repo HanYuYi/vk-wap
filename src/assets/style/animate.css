@@ -1,0 +1,113 @@
+/* 自定义动画 */
+/* 按钮动画，心脏跳动 + 边缘涟漪 */
+/* 心脏跳动 */
+@keyframes heartbeat-animate {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.08);
+  }
+  50% {
+    transform: scale(0.98);
+  }
+  55% {
+    transform: scale(1.02);
+  }
+  60% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* 边缘涟漪 */
+@keyframes ripple-animate {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 2px rgba(7, 241, 183, 0.65),
+      inset 0 0 1px rgba(7, 241, 183, 0.95);
+  }
+  95% {
+    box-shadow: 0 0 16px rgba(7, 241, 183, 0.15),
+      inset 0 0 16px rgba(7, 241, 183, 0.15);
+  }
+  to {
+    transform: scale(1.3);
+  }
+}
+.heartbeat {
+  animation: heartbeat-animate 1s ease-out infinite;
+}
+.ripple:before {
+  animation: ripple-animate 1s 0.5s ease-out infinite;
+}
+.ripple:after {
+  animation: ripple-animate 1s 0.65s ease-out infinite;
+}
+.ripple:after,
+.ripple:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 6px;
+}
+
+@keyframes scale95 {
+  0% {
+    transform:scale(0.95) translateZ(0)
+  }
+  100% {
+    transform:scale(1) translateZ(0)
+  }
+}
+
+@keyframes rotate360 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fade_in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 老项目的fade-up */
+@keyframes fade_up {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 50px ,0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0,0,0);
+  }
+}
+
+.fade_up_classic {
+  animation: fade_up 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes fade_down {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -50px ,0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0,0,0);
+  }
+}
+.fade_down_classic {
+  animation: fade_down 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+}

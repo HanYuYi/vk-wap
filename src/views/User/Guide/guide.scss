@@ -1,0 +1,84 @@
+@keyframes tab-animate-data {
+  from {
+    transform: scale(0, 0);
+  }
+
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+:deep(.highlight) {
+  color: #27bc74;
+}
+
+.warning_color {
+  color: #e34d12;
+}
+
+.type-wrapper {
+  .type {
+    width: 50%;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    margin-left: -2px;
+
+    &.type-active {
+      animation: tab-animate-data 0.3s ease;
+    }
+
+    &:last-child {
+      position: relative;
+      right: -6px;
+    }
+  }
+}
+
+.content {
+  color: #262933;
+
+  .main_title {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: bold;
+  }
+
+  .sub_title {
+    margin-top: 10px;
+    line-height: 24px;
+    color: #00bef6;
+  }
+
+  .content_title {
+    font-size: 16px;
+    color: #00bef6;
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+
+  .content_text {
+    line-height: 20px;
+    margin-bottom: 12px;
+  }
+
+  .content_img {
+    text-align: center;
+    box-shadow: 0 0 0.04rem 0.01rem rgb(0 0 0 / 40%);
+    margin-bottom: 12px;
+
+    img {
+      max-width: 96%;
+
+    }
+  }
+}
+
+.appinstall {
+  .content_img {
+    box-shadow: none;
+    img {
+      width: 2.665rem;
+    }
+  }
+}

@@ -1,0 +1,217 @@
+/* vant */
+:root {
+  --van-primary-color: #07f1b7;
+  --van-dialog-message-font-size: 15px !important;
+  --van-border-color: #C7C7C7;
+  --van-toast-default-width: 1rem !important;
+  --van-toast-icon-size: 50px !important;
+  --van-toast-position-top-distance: 24% !important;
+  --van-overlay-background: rgba(0, 0, 0, 0.6);
+  --badge-color: #f70000;
+  --vk-dark-green: #07e9f1;
+  --vk-primary-green: #07f1b7;
+  --vk-page-bgcolor: #f8fcfe;
+  --vk-primary-text-color: #30403a;
+  --vk-desc-text-color: #9AA3A0;
+  --vk-second-text-color: #5d6c67;
+  --vk-third-text-color: #646d6a;
+  --vk-light-text-color: #a1a7a5;
+  --vk-old-text-color: #262933;
+  --vk-old-light-text-color: #7c839f;
+  --vk-name-color: #808684;
+}
+
+$bigBtnRadius: 4px;
+
+.expand-page {
+  min-height: calc(100vh - 44px);
+  min-height: calc(var(--vh) * 100 - 44px);
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+
+// 头部
+.com-header {
+  .top-icon {
+    width: 22px;
+    height: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right: 0.16rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .draw-icon {
+    background-image: url('@/assets/img/template/july/header/draw.png');
+  }
+
+  .left-icon {
+    background-image: url('@/assets/img/template/july/header/left.png');
+
+    &.left-icon-white {
+      background-image: url('@/assets/img/template/july/header/left-white.png');
+    }
+  }
+
+  .kf_icon {
+    background-image: url("@/assets/img/template/july/header/kefu.png");
+
+    &.kf_icon_white {
+      background-image: url('@/assets/img/template/july/header/kefu-white.png');
+    }
+  }
+  .header-right-icon {
+    position: absolute;
+    right: 30px;
+  }
+
+  .log_icon {
+    background-image: url("@/assets/img/template/july/header/log.png");
+  }
+  .search_icon {
+    background-image: url("@/assets/img/template/july/header/btn-search.png");
+  }
+
+  .delivery_icon {
+    width: 0.25rem;
+    background-image: url("@/assets/img/template/july/header/delivery_icon.png");
+  }
+}
+
+.van-dialog {
+  top: 50%;
+  background-color: transparent;
+}
+
+.vk-confirm-dialog, .vk-dialog {
+  background-color: #ffffff;
+}
+
+// 弹窗
+.van-dialog.home-diolog {
+  width: 327px;
+  overflow: visible;
+  border-radius: 8px;
+  line-height: 1.6;
+  text-align: center;
+    .gg-close {
+      background: url('@/assets/img/template/july/home/dio-close.png') no-repeat center;
+      background-size: 100% 100%;
+      width: 28.5px;
+      height: 28px;
+      top: -40px;
+      position: absolute;
+      right: 0;
+    }
+    &.discovery_recom_diolog {
+      max-width: 100vw;
+      width: 367px;
+      margin-left: 0;
+    }
+}
+
+// vant-toast
+.van-toast {
+  &.vk-toast-fail {
+    color: #F76260;
+  }
+
+  &.vk-toast-success {
+    color: var(--vk-primary-green);
+  }
+}
+
+
+// 按钮
+%btn-gradient_color {
+  background: linear-gradient(to right, var(--vk-dark-green), var(--vk-primary-green));
+
+    &:active {
+      background: linear-gradient(to right, var(--vk-primary-green), var(--vk-dark-green));
+    }
+}
+%btn-shared {
+  display: inline-block;
+  text-align: center;
+  border-radius: 30px;
+  color: #000;
+  width: 100%;
+  line-height: normal;
+  padding: 5px 0;
+  font-size: 15px;
+  position: relative;
+}
+
+.button_primary_2022 {
+  @extend %btn-shared;
+  @extend %btn-gradient_color;
+  padding: 0;
+  height: 44px;
+  border-radius: $bigBtnRadius;
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.47;
+    color: #000;
+    @extend %btn-gradient_color;
+  }
+}
+
+// 空心 button
+.button_plain_2022 {
+  width: 100%;
+  height: 44px;
+  font-size: 15px;
+  text-align: center;
+  color: var(--vk-primary-green);
+  background-color: transparent;
+  box-sizing: border-box;
+  border: 2Px solid var(--vk-primary-green);
+  border-radius: $bigBtnRadius;
+
+  &:active {
+    background-color: rgba(7, 241, 183, 0.1);
+  }
+}
+
+/*钱包图片，转账的活动用到*/
+.wallet_box {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 1.25rem;
+  height: 0.585rem;
+  line-height: 0.585rem;
+  padding-left: 0.04rem;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  transition: border-color 0.2s;
+
+  &.active {
+    border: 1px solid #07e9f1;
+  }
+
+  $walletClassList: "GM", "SABACV", "FB", "AG", "LY", "PINNACLE", "LC", "PG", "BL", "FY", "RG", "IM", "ALLBET", "KY",
+    "PT", "FUNFAIR", "EG", "TF", "RP", "BTI", "IMSB", "SABA", "CROWN", "PM", "WE";
+
+  @each $class in $walletClassList {
+    @if #{$class} == "SABACV" {
+      &.#{$class} {
+        background-image: url("@/assets/img/wallet/GM.png");
+      }
+    }
+    @else if #{$class} != "SABACV" {
+      &.#{$class} {
+        background-image: url("@/assets/img/wallet/#{$class}.png");
+      }
+    }
+  }
+}

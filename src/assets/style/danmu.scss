@@ -1,0 +1,24 @@
+.win_prize_tip {
+  border-radius: 18px;
+  border: solid 1px var(--vk-primary-green);
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin-right: 740px;
+
+  &:first-child {
+    margin-left: 500px;
+  }
+
+  .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    margin-right: 8px;
+  }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" class="vkapp">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1,viewport-fit=cover,user-scalable=no">
+    <meta name="description" content="">
+    <meta name="theme-color" content="#fffffe">
+    <link rel="icon" href="/favicon.ico" />
+    <title></title>
+    <style>
+      #beforeapp {
+        min-width: 100vw;
+        min-height: 100vh;
+        background-color: #ffffff;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      #beforeapp .ab-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+      }
+    </style>
+    <script src="/wap_static/boc.js"></script>
+    <script>
+      var script = document.createElement('script');
+      script.src = location.origin + '/domainName.js';
+      var firstScript = document.getElementsByTagName('script')[0];
+      firstScript.parentNode.insertBefore(script, firstScript);
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-128372548-1', 'auto')
+      ga('send', 'pageview')
+    </script>
+    <script>
+      function base64ToUtf8(str) {
+        return decodeURIComponent(escape(window.atob(str)))
+      }
+
+      function seoUpdate(SeoTitle, SeoDescription) {
+        const headDom = document.getElementsByTagName('head')[0]
+        const title = headDom.getElementsByTagName("title")[0]
+        const meta = headDom.getElementsByTagName("meta")
+
+        title.innerText = SeoTitle;
+        for (let index = 0; index < meta.length; index++) {
+          if (meta[index].name === "description") {
+            meta[index].content = SeoDescription
+            break
+          }
+        }
+      }
+      const TITLE = "VktHQU1FIOWogeWuoueUteerng=="
+      const DESCRIPTION = "VktHQU1F5aiB5a6i55S156ueKHd3dy52a2dhbWUuY29tKeaYr+S4gOWutuaPkOS+m+eUteernuOAgeS9k+iCsuOAgeS8oOe7n+WoseS5kOeOqeazleOAgeeUteWtkOa4uOiJuuWQhOmhueacjeWKoeernueMnOW5s+WPsO+8jOS4uuaCqOaPkOS+m+WMheWQq0RPVEEy44CB6Iux6ZuE6IGU55uf44CBQ1NHT+OAgei2s+eQg+OAgeevrueQg+etieaVsOeZvuasvua4uOaIj+i1m+S6i+acjeWKoeOAgg=="
+
+      const decodeTitle = decodeURIComponent(JSON.parse('"' + base64ToUtf8(TITLE) + '"'))
+      const decodeDescribe = decodeURIComponent(JSON.parse('"'+ base64ToUtf8(DESCRIPTION) + '"'))
+      seoUpdate(decodeTitle, decodeDescribe)
+    </script>
+  </head>
+  <body ontouchstart="">
+    <div id="beforeapp">
+      <img class="ab-center" src="/wap_static/pull-refresh.png" alt="" />
+    </div>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+        <!-- built files will be auto injected -->
+    <!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script> -->
+  </body>
+</html>

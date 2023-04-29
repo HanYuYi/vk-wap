@@ -1,0 +1,92 @@
+table {
+  border-top: solid 0.01rem #018294;
+  border-right: solid 0.01rem #018294;
+  box-sizing: border-box;
+  margin-bottom: 0.16rem;
+
+  th,
+  td {
+    width: 1.01rem;
+  }
+
+  th {
+    height: 0.46rem;
+    box-sizing: border-box;
+    font-size: 0.15rem;
+    font-weight: bold;
+    border-left: solid 0.01rem #018294;
+    border-bottom: solid 0.01rem #018294;
+  }
+
+  td {
+    box-sizing: border-box;
+    height: 0.34rem;
+    font-size: 0.13rem;
+    line-height: 1.5;
+    border-left: solid 0.01rem #018294;
+    border-bottom: solid 0.01rem #018294;
+  }
+}
+
+    .login-dis-temp {
+      .join-btn {
+        margin-top: 0.1rem !important;
+      }
+    }
+
+    .regress-desc {
+      font-size: 0.12rem;
+      line-height: 1;
+      margin-top: 0.12rem;
+      letter-spacing: 0.006rem;
+    }
+  
+    .regress-btn {
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      font-size: 0.14rem;
+      justify-content: center;
+      margin: 0.15rem auto 0;
+      box-sizing: border-box;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100% 100%;
+      text-shadow: 0px 0.01rem 0.02rem rgba(154, 154, 154, 0.65);
+      font-weight: bold;
+      position: relative;
+  
+      &.btn-loading-wrapper {
+        width: 1.39rem;
+        height: 0.375rem;
+      }
+  
+      &.join-btn {
+        width: 1.39rem;
+        height: 0.375rem;
+        letter-spacing: 0.0035rem;
+        background-image: url('@/assets/img/active/general/regress/normal.png');
+  
+        &.btn-disable {
+          background-image: url('@/assets/img/active/general/regress/disabled.png');
+          color: #eaeaea;
+        }
+      }
+    }
+
+ol {
+  padding-left: 0.2rem;
+  list-style: decimal;
+}
+
+li {
+  list-style: decimal;
+  margin-bottom: 0.12rem;
+  position: relative;
+  line-height: 1.33;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}

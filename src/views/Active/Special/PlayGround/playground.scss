@@ -1,0 +1,319 @@
+.active-content {
+  margin: 0.05rem 0.25rem 0;
+  font-weight: normal;
+  font-size: 0.15rem;
+  color: #c8bdbd;
+}
+
+.rules {
+  dt {
+    height: 0.72rem;
+    background: url("@/assets/img/active/special/playground/rule_title.png") no-repeat center top;
+    background-size: auto 100%;
+  }
+
+  dd {
+    width: 3.52rem;
+    margin: 0.095rem auto 0;
+
+    ul {
+      width: 3.17rem;
+      margin-left: 0.17rem;
+      overflow: hidden;
+
+      li {
+        margin-top: 0.13rem;
+        display: flex;
+
+        &:first-child {
+          margin-top: 0.17rem;
+        }
+
+        i {
+          margin-top: 0.015rem;
+          display: inline-block;
+          width: 0.18rem;
+          height: 0.18rem;
+          background: transparent url("@/assets/img/active/festival/christmas2022/rule_num_icon.png");
+          background-size: 100% 100%;
+          text-align: center;
+          line-height: 0.18rem;
+          font-size: 0.12rem;
+          color: #fff;
+        }
+
+        p {
+          flex: 1;
+          margin-left: 11px;
+          font-size: 0.15rem;
+          line-height: 0.21rem;
+          letter-spacing: normal;
+          color: #c8bdbd;
+        }
+      }
+    }
+  }
+}
+
+.transfer-for-playground {
+
+  .van-dialog__content {
+
+    .transfer-playground {
+      width: 3.29rem;
+      margin: 0.6rem auto 0;
+
+      &.disabled {
+        pointer-events: none;
+
+        .transfer-btn {
+          opacity: 0.7;
+        }
+      }
+
+      .close {
+        position: absolute;
+        right: 0;
+        top: -0.4rem;
+        width: 0.32rem;
+        height: 0.32rem;
+        background-image: url("@/assets/img/active/special/playground/dialog_close.png");
+        background-size: 100% 100%;
+        transition: filter 0.1s;
+
+        &:active {
+          filter: saturate(180%);
+        }
+      }
+
+      .form-item {
+        font-size: 0.14rem;
+        color: #c0bdc8;
+
+        .title {
+          font-weight: normal;
+          font-size: 0.16rem;
+          color: #fff;
+        }
+
+        .pro {
+          margin-top: 0.1rem;
+        }
+
+        .wallet-list {
+          li {
+            display: inline-block;
+            width: 1.05rem;
+            height: 0.45rem;
+            line-height: 0.43rem;
+            text-align: center;
+            margin-right: 0.07rem;
+            margin-bottom: 0.08rem;
+            box-sizing: border-box;
+            border: solid 0.01rem #524a4b;
+            position: relative;
+            transition: all 0.1s;
+
+            &:nth-child(3n + 3) {
+              margin-right: 0;
+            }
+
+            &::after {
+              position: absolute;
+              content: "";
+              width: 0.15rem;
+              height: 0.15rem;
+              bottom: -0.01rem;
+              right: -0.01rem;
+              background-image: url("@/assets/img/active/special/playground/wallet_unchecked.png");
+              background-size: 100% 100%;
+              pointer-events: none;
+            }
+
+            &.active {
+              color: #d73d38;
+              border-color: #d73d38;
+
+              &::after {
+                background-image: url("@/assets/img/active/special/playground/wallet_checked.png");
+              }
+            }
+          }
+        }
+      }
+
+      .amount {
+        margin-top: 0.06rem;
+
+        .input-box {
+          .van-field {
+            background-color: transparent;
+            border: solid 0.01rem #524a4b;
+            box-sizing: border-box;
+            line-height: 0.43rem;
+            padding: 0 16px;
+
+           :deep(input)  {
+              color: #c0bdc8;
+              font-size: 0.14rem;
+              font-family: Roboto;
+
+              &::placeholder {
+                color: #c0bdc8;
+              }
+            }
+          }
+        }
+
+        .shortcut-btn {
+          margin-top: 9px;
+          display: flex;
+
+          li {
+            margin-right: 0.05rem;
+            width: 0.62rem;
+            height: 0.3rem;
+            font-size: 0.14rem;
+            line-height: 0.28rem;
+            text-align: center;
+            color: #c0bdc8;
+            box-sizing: border-box;
+            border: solid 0.01rem #524a4b;
+
+            &:last-child {
+              margin-right: 0;
+            }
+
+            &:active {
+              color: #d73d38;
+              border-color: #d73d38;
+            }
+          }
+        }
+      }
+
+      .transfer-btn {
+        display: block;
+        margin: 0.42rem auto 0;
+        width: 2.025rem;
+        height: 0.615rem;
+        border: 0;
+        outline: 0;
+        background-color: transparent;
+        background-image: url("@/assets/img/active/special/playground/dialog_btn.png");
+        background-size: 100% 100%;
+        transition: filter 0.1s;
+
+        &:active {
+          filter: saturate(130%);
+        }
+      }
+
+      .transferable-tips {
+        margin-top: -0.05rem;
+        font-size: 0.14rem;
+        text-align: center;
+        color: #c0bdc8;
+        margin-bottom: 0.08rem;
+
+        span {
+          font-family: Roboto;
+          color: #fbde96;
+        }
+      }
+    }
+  }
+}
+
+.receive-bonus-for-playground {
+    .van-dialog__content {
+    
+        .receive-main {
+          width: 3.31rem;
+          margin: 0.66rem auto 0.05rem;
+    
+          &.disabled {
+            pointer-events: none;
+    
+            .receive-btn {
+              opacity: 0.7;
+            }
+          }
+    
+          .close {
+            position: absolute;
+            right: 0;
+            top: -0.4rem;
+            width: 0.32rem;
+            height: 0.32rem;
+            background-image: url('@/assets/img/active/special/playground/dialog_close.png');
+            background-size: 100% 100%;
+            transition: filter 0.1s;
+    
+            &:active {
+              filter: saturate(180%);
+            }
+          }
+    
+          .wallet-list {
+            li {
+              display: inline-block;
+              width: 1.05rem;
+              height: 0.45rem;
+              line-height: 0.43rem;
+              text-align: center;
+              margin-right: 0.08rem;
+              margin-bottom: 0.08rem;
+              color: #c0bdc8;
+              font-size: 0.14rem;
+              box-sizing: border-box;
+              border: solid 0.01rem #524a4b;
+              position: relative;
+              transition: all 0.1s;
+    
+              &:nth-child(3n + 3) {
+                margin-right: 0;
+              }
+    
+              &::after {
+                position: absolute;
+                content: '';
+                width: 0.15rem;
+                height: 0.15rem;
+                bottom: -0.01rem;
+                right: -0.01rem;
+                background-image: url('@/assets/img/active/special/playground/wallet_unchecked.png');
+                background-size: 100% 100%;
+                pointer-events: none;
+              }
+    
+              &.active {
+                color: #d73d38;
+                border-color: #d73d38;
+    
+                &::after {
+                  background-image: url('@/assets/img/active/special/playground/wallet_checked.png');
+                }
+              }
+            }
+          }
+    
+          .receive-btn {
+            display: block;
+            margin: 0.12rem auto 0;
+            width: 2.025rem;
+            height: 0.615rem;
+            border: 0;
+            outline: 0;
+            background-color: transparent;
+            background-image: url('@/assets/img/active/special/playground/dialog_btn.png');
+            background-size: 100% 100%;
+            transition: filter 0.1s;
+    
+            &:active {
+              filter: saturate(130%);
+            }
+          }
+        }
+      }
+}

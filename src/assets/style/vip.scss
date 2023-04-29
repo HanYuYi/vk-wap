@@ -1,0 +1,51 @@
+.vip {
+  width: 42.5px;
+  height: 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+
+@for $i from 0 through 12 {
+  .vip#{$i} {
+    background-image: url("@/assets/img/template/july/home/vip/vip#{$i}.png");
+  }
+}
+
+/*level-color*/
+.user_level {
+  &.lv0 {
+    color: #b8cbd2;
+  }
+
+  &.lv1 {
+    color: #abe8e0;
+  }
+
+  &.lv11 {
+    color: #f93306;
+  }
+
+  &.lv12 {
+    color: #07f1b7;
+  }
+
+  &.lv2,
+  &.lv3,
+  &.lv4 {
+    color: #fdbd47;
+  }
+
+  &.lv5,
+  &.lv6,
+  &.lv7 {
+    color: #4698ed;
+  }
+
+  &.lv8,
+  &.lv9,
+  &.lv10 {
+    color: #8c53b4;
+  }
+}

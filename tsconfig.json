@@ -1,0 +1,40 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "include": ["env.d.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*", "src/**/*.vue"],
+  "compilerOptions": {
+    "strictNullChecks": false,
+    "typeRoots": ["./node_modules/@types/*",
+      "./src/types/*"
+    ],
+    "strict": true,
+    "alwaysStrict": true,
+    "experimentalDecorators": true,
+    "compileOnSave": true,
+    "outDir": "build",
+    "target": "esnext",
+    "module": "esnext",
+    "allowSyntheticDefaultImports": true,
+    "useDefineForClassFields": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "types": ["vite/client"],
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+
+  "references": [
+    {
+      "path": "./tsconfig.config.json"
+    }
+  ]
+}

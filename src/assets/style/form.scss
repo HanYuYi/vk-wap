@@ -1,0 +1,110 @@
+.login-reg-page {
+  background: #212432 url('@/assets/img/login/login_bg.webp') no-repeat left -20px;
+  background-size: 100% auto;
+}
+
+.form_box {
+  :deep(.login_icon) {
+    width: 24px;
+    height: 24px;
+    background-size: 100% 100%;
+    margin-left: 10px;
+
+    &.ver_icon {
+      background-image: url('@/assets/img/login/ver_icon.png');
+    }
+
+    &.username_icon {
+      background-image: url('@/assets/img/login/username_icon.png');
+    }
+
+    &.password_icon {
+      background-image: url('@/assets/img/login/password_icon.png');
+    }
+
+    &.eye_icon {
+      background-image: url('@/assets/img/login/pass_c_icon.png');
+    }
+
+    &.eye_close_icon {
+      background-image: url('@/assets/img/login/pass_p_icon.png');
+    }
+
+    &.verfiy_icon {
+      background-image: url('@/assets/img/login/txt_ver_icon.png');
+    }
+    &.answer_icon {
+      background-image: url('@/assets/img/login/answer_icon.png');
+    }
+    &.invite_icon {
+      background-image: url('@/assets/img/login/invite_icon.png');
+    }
+  }
+
+  .button_primary_2022 {
+    font-size: 17px;
+  }
+
+  .send_vercode_btn {
+    min-width: 90px;
+    margin-right: 12px;
+    font-size: 14px;
+    padding: 0 10px;
+    border: none;
+
+    &.van-button--disabled {
+      opacity: 1;
+      color: #9eabc0;
+      background: #515f77;
+    }
+  }
+
+  :deep(.input_box) {
+    margin-bottom: 16px;
+    border: 1px solid #515f77;
+    border-radius: 4px;
+    background-color: #212432;
+    display: flex;
+    align-items: center;
+
+    &:focus-within {
+      border-color: #07f1b7;
+    }
+
+    &.input_box_success {
+      color: #07f1b7;
+      border-color: #07f1b7;
+      background-color: #1e3940;
+    }
+
+    &.input_box_error {
+      color: #f14667;
+      border-color: #f14667;
+      background-color: #362737;
+    }
+  }
+
+  :deep(.van-cell) {
+    flex: 1;
+    width: auto;
+    background: transparent;
+    padding-left: 8px;
+    padding-right: 8px;
+
+    input {
+      font-family: Roboto;
+      caret-color: #07f1b7;
+      color: #fff;
+      font-size: 14.5px;
+
+      &::placeholder {
+        color: #8b9ab4;
+      }
+    }
+
+    .van-field__clear {
+      font-size: 18px;
+      color: #515f77;
+    }
+  }
+}

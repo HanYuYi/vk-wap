@@ -1,0 +1,112 @@
+.userset-form {
+  .van-cell-group--inset {
+    margin: 0 12px;
+    border-radius: 8px;
+  }
+  :deep(.block-wrapper){
+    .single-box {
+      .input-box {
+        width: 100%;
+        padding-right: 0;
+        .title-babel {
+          background: none;
+          color: #505555;
+          font-size: 14px;
+          padding: 0;
+          margin-left: 32px;
+        }
+      }
+    }
+  }
+
+  .login_icon {
+    width: 20px;
+    height: 20px;
+    background-size: 100% 100%;
+    margin-left: 10px;
+
+    &.eye_icon {
+      background-image: url('@/assets/img/template/july/my/set/icon/eye-open-icon.png');
+    }
+
+    &.eye_close_icon {
+      background-image: url('@/assets/img/template/july/my/set/icon/eye-close-icon.png');
+    }
+  }
+
+  .input_box {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .down-arrow {
+      margin-left: 10px;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: url('@/assets/img/template/july/my/set/icon/down-icon.png') no-repeat center;
+      background-size: contain;
+    }
+
+    .right-line {
+      position: relative;
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 1px;
+        height: 14px;
+        background-color: #d8d8d9;
+        position: absolute;
+        right: 8px;
+        top: 12.5px;
+      }
+    }
+
+    &.phonecode_input_box {
+      justify-content: space-between;
+      &.phonecode_input_cding {
+        .van-cell {
+          width: 242px;
+        }
+      }
+      .van-cell {
+        width: 258px;
+      }
+    }
+
+    .van-cell {
+      line-height: 40px;
+      :deep(.van-field__label) {
+        font-weight: bold;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      height: 1px;
+      width: 320px;
+      background-color: #e6ecee;
+    }
+
+    &:last-child {
+      &::after {
+        content: none;
+      }
+    }
+  }
+
+  .send_vercode_btn {
+    padding: 0 7px;
+    height: 32px;
+    border: 1px solid #a5e3d2;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #5ad8b5;
+    margin-right: 14px;
+    white-space: nowrap;
+  }
+}
