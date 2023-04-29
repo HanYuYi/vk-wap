@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Validator from "@/components/Validator.vue"
-import type { ValidatorBackType, ValidatorExposeType } from "@/components/Validator.vue"
 import DialogRegLeave from "@/components/dialog/DialogRegLeave.vue"
 import ApiSetting from "@/api/service"
 import { HttpPlus } from "@/api/HttpPlus"
@@ -19,7 +18,6 @@ import type { Router } from "vue-router"
 import { useForm } from "@/composable/form"
 import { showToast } from "vant"
 import type { IndexRegister } from "@/api/pojo/IndexRegister"
-import { IndexRegister as IndexRegisterAlias } from "@/api/pojo/IndexRegister"
 
 const systemParams = useSysStore()
 const loginStore = useLoginStore()
@@ -92,7 +90,9 @@ const validateResolve = (values: PhoneRegisterFormFiled | AccountRegisterFormFil
     return validationPassed
 }
 
-const verifyRef = ref<ValidatorExposeType | null>(null)
+const verifyRef = ref<{
+    reset: () => void
+} | null>(null)
 
 const submitLoading = ref(false)
 
@@ -165,7 +165,7 @@ const switchMode = (): void => {
     }
 }
 
-const getVerfy = (val: ValidatorBackType): void => {
+const getVerfy = (val: { tag: "img" | "botion"; res: Record<string, string> | string }): void => {
     if (typeof val.res === "string" && val.tag === "img") {
         verifycode.value = val.res
     }

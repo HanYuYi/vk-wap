@@ -1,6 +1,130 @@
+<script setup lang="ts">
+import { useSysStore } from "@/stores/system"
+import { useWalletStore } from "@/stores/wallet"
+import { useFreshStore } from "@/stores/fresh"
+import { useRouter } from "vue-router"
+import { computed, ref, onMounted } from "vue"
+import { usePlaceImg } from "@/utils/globalImgs"
+import Badge from "@/components/Badge.vue"
+import type { InferArray } from "@/types"
+
+const systemParams = useSysStore()
+const walletStore = useWalletStore()
+const freshStore = useFreshStore()
+const router = useRouter()
+
+const { GrayAvatar } = usePlaceImg()
+
+// 屏幕往下滚动时，header背景由透明变为不透明
+window.onscroll = () => {
+    systemParams.headBgColorOpacity = window.scrollY / 80
+}
+
+const centerLink = [
+    {
+        bigtitle: "资金管理",
+        list: [
+            { title: "充值", url: "/finance/deposit", classname: "deposit" },
+            { title: "转账", url: "/finance", classname: "transfer" },
+            { title: "提现", url: "/finance/withdraw", classname: "withdraw" },
+            { title: "收款账户", url: "/bankcard", classname: "userbank" }
+        ]
+    },
+    {
+        bigtitle: "我的应用",
+        list: [
+            { title: "饰品红包", url: "/roll", classname: "roll" },
+            { title: "任务中心", url: "/task", classname: "task" },
+            { title: "V币商城", url: "/vbmarket", classname: "vbmarket" },
+            { title: "我的背包", url: "/package", classname: "package" },
+            { title: "交易记录", url: "/tradingrecord", classname: "tradingrecord" },
+            { title: "消息公告", url: "/messages", classname: "message" },
+            { title: "兑换码", url: "/redeemcode", classname: "redeemcode" }
+        ]
+    },
+    {
+        bigtitle: "热门推荐",
+        list: [
+            { title: "优惠活动", url: "/discovery", classname: "active" },
+            { title: "推广分享", url: "/seo", classname: "seo" },
+            { title: "合作加盟", url: "/jointly", classname: "join" },
+            { title: "我的代理", url: "", classname: "proxy", tag: "href" },
+            { title: "设置", url: "/setting", classname: "setting" }
+        ]
+    }
+]
+
+const proxyUrl = computed<string>(() => {
+    const userInfo = "proxy_href" in systemParams.userInfo ? systemParams.userInfo.proxy_href : ""
+    return userInfo + "&gfrom=wap"
+})
+
+const finalData = computed<InferArray<typeof centerLink>[]>(() => {
+    const userInfo = systemParams.userInfo as { user_type: number; proxy_href: string }
+
+    if (systemParams.isLogin && userInfo.user_type === 2 && userInfo.proxy_href) {
+        return centerLink.map((item, i) => {
+            if (i === 2) {
+                const list = item.list.filter((ele) => ele.classname !== "join")
+                return { bigtitle: item.bigtitle, list }
+            } else {
+                return item
+            }
+        })
+    }
+    return centerLink.map((item, i) => {
+        if (i === 2) {
+            const list = item.list.filter((ele) => ele.classname !== "proxy")
+            return { bigtitle: item.bigtitle, list }
+        } else {
+            return item
+        }
+    })
+})
+
+const jump = (item: InferArray<typeof centerLink>["list"][number]): void => {
+    if (item.tag === "href" && item.classname === "proxy" && proxyUrl.value) {
+        location.href = proxyUrl.value
+    } else {
+        if (item.url === "/messages") {
+            router.push(`${item.url}/?id=1`)
+        } else {
+            router.push(item.url)
+        }
+    }
+}
+
+const onRefresh = async (): Promise<void> => {
+    try {
+        await init()
+        freshStore.refreshLoading = false
+    } catch (error) {
+        freshStore.refreshLoading = false
+    }
+}
+
+const isShowPage = ref(false)
+const init = async (): Promise<void> => {
+    isShowPage.value = false
+    await systemParams.getUserInfo()
+    if (systemParams.isLogin) {
+        walletStore.loadMoney("NM")
+        walletStore.getRichpayData()
+        systemParams.getMsgCount()
+        systemParams.loadTaskCount()
+    }
+    isShowPage.value = true
+}
+
+onMounted(() => {
+    init()
+})
+</script>
+
 <template>
     <div class="my_page">
         <HeaderBar />
+
         <PullRefresh @on-refresh="onRefresh">
             <div class="user_home pb-60px" v-if="isShowPage">
                 <!--用户信息-->
@@ -145,122 +269,6 @@
         </PullRefresh>
     </div>
 </template>
-
-<script setup lang="ts">
-import { useSysStore } from "@/stores/system"
-import { useWalletStore } from "@/stores/wallet"
-import { useFreshStore } from "@/stores/fresh"
-import { useRouter } from "vue-router"
-import { computed, ref, onMounted } from "vue"
-import { usePlaceImg } from "@/utils/globalImgs"
-import Badge from "@/components/Badge.vue"
-const systemParams = useSysStore()
-const walletStore = useWalletStore()
-const freshStore = useFreshStore()
-const router = useRouter()
-
-const { GrayAvatar } = usePlaceImg()
-
-// 屏幕往下滚动时，header背景由透明变为不透明
-window.onscroll = () => {
-    systemParams.headBgColorOpacity = window.scrollY / 80
-}
-
-const centerLink = ref([
-    {
-        bigtitle: "资金管理",
-        list: [
-            { title: "充值", url: "/finance/deposit", classname: "deposit" },
-            { title: "转账", url: "/finance", classname: "transfer" },
-            { title: "提现", url: "/finance/withdraw", classname: "withdraw" },
-            { title: "收款账户", url: "/bankcard", classname: "userbank" }
-        ]
-    },
-    {
-        bigtitle: "我的应用",
-        list: [
-            { title: "饰品红包", url: "/roll", classname: "roll" },
-            { title: "任务中心", url: "/task", classname: "task" },
-            { title: "V币商城", url: "/vbmarket", classname: "vbmarket" },
-            { title: "我的背包", url: "/package", classname: "package" },
-            { title: "交易记录", url: "/tradingrecord", classname: "tradingrecord" },
-            { title: "消息公告", url: "/messages", classname: "message" },
-            { title: "兑换码", url: "/redeemcode", classname: "redeemcode" }
-        ]
-    },
-    {
-        bigtitle: "热门推荐",
-        list: [
-            { title: "优惠活动", url: "/discovery", classname: "active" },
-            { title: "推广分享", url: "/seo", classname: "seo" },
-            { title: "合作加盟", url: "/jointly", classname: "join" },
-            { title: "我的代理", url: "", classname: "proxy", tag: "href" },
-            { title: "设置", url: "/setting", classname: "setting" }
-        ]
-    }
-])
-
-const proxyUrl = computed(() => (systemParams.userInfo.proxy_href ? systemParams.userInfo.proxy_href + "&gfrom=wap" : ""))
-
-const finalData = computed(() => {
-    if (systemParams.isLogin && systemParams.userInfo.user_type === 2 && systemParams.userInfo.proxy_href) {
-        return centerLink.value.map((item, i) => {
-            if (i === 2) {
-                const list = item.list.filter((ele) => ele.classname !== "join")
-                return { bigtitle: item.bigtitle, list }
-            } else {
-                return item
-            }
-        })
-    }
-    return centerLink.value.map((item, i) => {
-        if (i === 2) {
-            const list = item.list.filter((ele) => ele.classname !== "proxy")
-            return { bigtitle: item.bigtitle, list }
-        } else {
-            return item
-        }
-    })
-})
-
-const jump = (item: any) => {
-    if (item.tag === "href" && item.classname === "proxy" && proxyUrl.value) {
-        location.href = proxyUrl.value
-    } else {
-        if (item.url === "/messages") {
-            router.push(`${item.url}/?id=1`)
-        } else {
-            router.push(item.url)
-        }
-    }
-}
-
-const onRefresh = async () => {
-    try {
-        await init()
-        freshStore.refreshLoading = false
-    } catch (error) {
-        freshStore.refreshLoading = false
-    }
-}
-
-const isShowPage = ref(false)
-const init = async () => {
-    isShowPage.value = false
-    await systemParams.getUserInfo()
-    if (systemParams.isLogin) {
-        walletStore.loadMoney("NM")
-        walletStore.getRichpayData()
-        systemParams.getMsgCount()
-        systemParams.loadTaskCount()
-    }
-    isShowPage.value = true
-}
-
-onMounted(() => {
-    init()
-})
-</script>
 
 <style lang="scss" scoped>
 @import "@/assets/style/vip.scss";
